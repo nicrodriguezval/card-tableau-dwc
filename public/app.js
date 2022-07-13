@@ -35,21 +35,21 @@
 
     $.ajax({
       dataType: 'json',
-      url: 'https://cors-anywhere.herokuapp.com/http://35.188.2.217:4215/api/v1/transactions/get_report_advance/2019/12',
-      headers: { 'x-requested-with': 'origin' }
+      url: 'https://payments-transer.fletx.co/api/v1/transactions/get_report_advance/2019'
     }).done((data) => {
       const cards = data.data
-        for (let i = 0; i < cards.length; i++) {
-          tableData.push({
-            id: cards[i].id,
-            driver_id: cards[i].driver_id,
-            request_id: cards[i].request_id,
-            decrypted_card_number: cards[i].decrypted_card_number
-          })
-        }
 
-        table.appendRows(tableData)
-        doneCallback()
+      cards.forEach((card) => {
+        tableData.push({
+          id: card.id,
+          driver_id: card.driver_id,
+          request_id: card.request_id,
+          decrypted_card_number: card.decrypted_card_number
+        })
+      })
+
+      table.appendRows(tableData)
+      doneCallback()
     })
   }
 
