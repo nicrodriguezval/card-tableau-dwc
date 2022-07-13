@@ -4,10 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cards Data Web Connector</title>
+    
+    <!--css file-->
+    <link rel="stylesheet" href="style.css" />
+    <!--jQuery dependency-->
     <script
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
       type="text/javascript"
     ></script>
+    <!--tableau dependency-->
     <script
       src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js"
       type="text/javascript"
@@ -16,13 +21,14 @@
 
   <body>
     <header>
-      <h1>Get the cards data from the api</h1>
-    </header>
     <main>
-      <button id="get-data">Get the cards data</button>
+      <div class="container">
+        <h1 class="main-text main-text-animated">Get the cards data from the api</h1>
+        <button id="get-data" class="btn btn-red btn-animated">Get data</button>
+      </div>
     </main>
 
-    <!--javascript file-->
+    <!--js file-->
     <script src="./app.js"></script>
   </body>
 </html>
