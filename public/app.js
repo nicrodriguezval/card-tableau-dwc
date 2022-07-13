@@ -31,11 +31,15 @@
   }
 
   myConnector.getData = function (table, doneCallback) {
+    const dateObj = JSON.parse(tableau.connectionData)
     const tableData = []
+
+    const datePath = `${dateObj.year}${(dateObj.month) ? '/' + dateObj.month : ''}`
+    const url = `https://payments-transer.fletx.co/api/v1/transactions/get_report_advance/${datePath}`
 
     $.ajax({
       dataType: 'json',
-      url: 'https://payments-transer.fletx.co/api/v1/transactions/get_report_advance/2019'
+      url
     }).done((data) => {
       const cards = data.data
 
@@ -56,7 +60,23 @@
   tableau.registerConnector(myConnector)
 })()
 
-const getData = () => {
+const validYear = (year) => /^\d{4}$/.test(year)
+const validMonth = (month) => /^\d{0,2}$/.test(month)
+
+function getData(e) {
+  e.preventDefault()
+  
+  const dateObj = {
+    year: $('#input-year').val(),
+    month: $('#input-month').val()
+  }
+
+  console.log(dateObj)
+
+  if (!validYear(dateObj.year)) return alert('Invalid year')
+  if (!validMonth(dateObj.month)) return alert('Invalid month')
+
+  tableau.connectionData = JSON.stringify(dateObj)
   tableau.connectionName = 'Cards from api'
   tableau.submit()
 }
