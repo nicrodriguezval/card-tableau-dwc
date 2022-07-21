@@ -2,6 +2,9 @@
   --primary: #24529c;
   --secondary: #d64c42;
   --white: #fff;
+  --white-secondary: #ccc;
+  --black: #000;
+  --black-secondary: #333;
 }
 
 * {
@@ -19,7 +22,7 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
-  color: #333;
+  color: var(--black-secondary);
   background: var(--white);
   box-sizing: border-box;
 }
@@ -34,53 +37,16 @@ main {
 .main-text {
   color: var(--primary);
   text-transform: uppercase;
+  margin-bottom: 3rem;
 }
 
 .main-text-animated {
   animation: fromTop 0.75s ease-in;
 }
 
-.mandatory {
-  color: var(--secondary);
-  margin-left: .2rem;
-}
-
 .container {
   padding: 2rem;
-}
-
-.card-form {
-  padding: 3rem;
-  width: 75%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
-}
-
-.input {
-  display: block;
-  width: 100%;
-  padding: 0.5rem;
-  border: 0.1rem solid #ccc;
-  border-radius: 1rem;
-  font-size: 1.6rem;
-  line-height: 1.5;
-  color: #333;
-  background: var(--white);
-  margin-bottom: 1.2rem;
-  text-align: center;
-}
-
-.card-form-animated {
-  animation: justAppears 0.75s ease-in 0.25s;
-  animation-fill-mode: backwards;
-}
-
-.input:focus{
-  outline: none;
-  outline: .1rem solid var(--primary);
-  transform: scale(1.03);
 }
 
 .btn {
@@ -88,7 +54,6 @@ main {
   padding: 1rem 1.5rem;
   border-radius: 2rem;
   border: none;
-  margin-top: 1.5rem;
 }
 
 .btn:hover {
@@ -104,15 +69,6 @@ main {
 .btn-animated {
   animation: fromBottom 0.75s ease-out 0.5s;
   animation-fill-mode: backwards;
-}
-
-@keyframes justAppears {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes fromTop {
